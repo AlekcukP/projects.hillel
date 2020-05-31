@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script async src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="text"  id="inputForm" placeholder="Enter your task">
+    <button  id="addBtn">Add to list</button>
+<div id="wrapper">
+    <ul id="taskList"></ul>
+</div>
+</body>
+
+<script type="text/template" id="listItem">
+
+<li class="listItem itemWait"><span>{{задача}}</span><button class="deleteBtn">Удалить</button></li>
+
+</script>
+
+
+</html>

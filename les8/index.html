@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script async src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input id="topPosition" type="text">
+    <input id="leftPosition" type="text">
+    <input id="color" type="color">
+    <button id = "addBtn">Add</button>
+    <div id = "container"></div>
+
+    <script type="text/template" id="shapeTemplate">
+        <div 
+        class="shape" 
+    style="top: {{topPos}}px; left: {{leftPos}}px; background-color: {{color}}">
+        </div>
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+.shape {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    position: absolute;
+}
+.shapeCircle{
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.shapeSquare{
+    border: 1px solid black;
+}
+.shapeTriangle{
+    border: 70px solid transparent;
+    border-bottom: 75px solid;
+    width: 0;
+    height: 0;
+    background-color: transparent !important;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-top-color: transparent !important;
+}
+.hidden{
+    display: none;
+}

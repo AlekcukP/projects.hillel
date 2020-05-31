@@ -1,0 +1,24 @@
+button{
+display: inline-block;
+width: 150px;
+height: 50px;
+margin: 10px;
+}
+body{
+display: flex;
+justify-content: center;
+}
+div{
+margin-top: 100px;
+}
+button:hover{
+background: gold;
+box-shadow: 0 -200px 100px -120px crimson inset;
+animation: backgroundAnimation 5s infinite alternate;
+}
+@keyframes backgroundAnimation {
+50% {
+    background: skyblue;
+    box-shadow: 0 -200px 100px -100px yellowgreen inset;
+}
+}
