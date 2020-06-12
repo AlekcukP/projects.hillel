@@ -1,0 +1,23 @@
+.title{
+    width: 300px;
+    padding: 30px;
+    border: 1px solid grey;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .title:hover{
+    background-color: grey;
+    transition: 0.4s;
+    text-decoration: underline;
+  }
+  .body{
+    width: 300px;
+     border: 1px solid grey;
+    box-sizing: border-box;
+  }
+  .hidden{
+    display: none;
+  }
+  .active{
+  background-color: grey;
+  }
