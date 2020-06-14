@@ -1,0 +1,29 @@
+.tabset_body{
+display: none;
+}
+.tabset_head{
+    display: flex;
+    justify-content: space-around;
+}
+
+.tabset_title{
+    color: blue;
+    width: 100px;
+    text-align: center;
+}
+.tabset_open{
+    display: block;
+    border: 1px solid grey;
+}
+
+.tabset_active{
+    border: 1px solid grey;
+    color: grey;
+    height: 30px;
+}
+.tabset_active::after{
+    content: "";
+    display: block;
+    height: calc(100% + 1px);
+    background:white;
+}
