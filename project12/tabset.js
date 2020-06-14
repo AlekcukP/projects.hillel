@@ -85,6 +85,3 @@ class Tabset{
     }
 
 }
-
-
-let bag = new Tabset(document.getElementById('container'));
