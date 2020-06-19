@@ -5,6 +5,8 @@ class DoList {
 
     static STATUS_DONE = 'dolist_done';
     static STATUS_DEAFAULT = 'dolist_default';
+    static ATTRIBUTE_NAME = 'DoListId';
+
     
     
     constructor(arr){
@@ -18,21 +20,6 @@ class DoList {
 
     this.toDoList.addEventListener('click', this.onTaskListClick.bind(this));
     this.addBtn.addEventListener('click', this.onAddbtnClick.bind(this));
-    }
-    
-    createInitList(){
-        let length = this.toDoTasks.length;
-
-        for(let i = 0; i < length; i++){
-            this.createListEl(i);
-        }
-    }
-
-    createListEl(i){
-        let listEl = DoList.createTask(this.toDoTasks[i].title);
-            listEl = DoList.initSetStatus(listEl, this.toDoTasks[i].completed);
-            listEl = DoList.setElAttribute(listEl, 'DoListId', this.toDoTasks[i].id);
-            DoList.appendElement(listEl, this.toDoList);
     }
 
    static createTask(taskText){
@@ -62,9 +49,32 @@ class DoList {
         container.append(el);
     }
 
+    static setSataus(el, condition){
+        if(condition){
+            el.classList.add(DoList.STATUS_DONE);
+        } else{
+            el.classList.remove(DoList.STATUS_DONE);
+        }
+    }
+
+    createInitList(){
+        let length = this.toDoTasks.length;
+
+        for(let i = 0; i < length; i++){
+            this.createListEl(i);
+        }
+    }
+
+    createListEl(i){
+        let listEl = DoList.createTask(this.toDoTasks[i].title);
+            listEl = DoList.initSetStatus(listEl, this.toDoTasks[i].completed);
+            listEl = DoList.setElAttribute(listEl, DoList.ATTRIBUTE_NAME, this.toDoTasks[i].id);
+            DoList.appendElement(listEl, this.toDoList);
+    }
+
     onTaskListClick(e){
         if(e.target.classList.contains(DoList.STATUS_DEAFAULT)){
-            this.findEl(e.target.getAttribute('DoListId'), e.target);
+            this.findEl(e.target.getAttribute(DoList.ATTRIBUTE_NAME), e.target);
             
         }
     }
@@ -84,15 +94,6 @@ class DoList {
             DoList.setSataus(el, item.completed);
         }); 
         
-    }
-
-
-    static setSataus(el, condition){
-        if(condition){
-            el.classList.add(DoList.STATUS_DONE);
-        } else{
-            el.classList.remove(DoList.STATUS_DONE);
-        }
     }
 
     onAddbtnClick(){
