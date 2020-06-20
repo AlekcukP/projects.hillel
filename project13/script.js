@@ -3,6 +3,7 @@ class DoList {
     static STATUS_DONE = 'dolist_done';
     static STATUS_DEAFAULT = 'dolist_default';
     static ATTRIBUTE_NAME = 'data-dolist-id';
+    static CLASS_DELETE_BTN = 'dolist_deleteBtn';
 
     
     
@@ -23,7 +24,14 @@ class DoList {
         let newTask = document.createElement('div');
         newTask.innerText = taskText;
         newTask.className = DoList.STATUS_DEAFAULT;
+        newTask.append(DoList.createDeleteBtn());
         return newTask;
+    }
+
+    static createDeleteBtn(){
+        let deleteBtn = document.createElement('span');
+        deleteBtn.className = DoList.CLASS_DELETE_BTN;
+        return deleteBtn;
     }
 
     static setStatus(el, condition){
@@ -33,6 +41,20 @@ class DoList {
         } else{
             el.classList.remove(DoList.STATUS_DONE);
         }
+    }
+    
+    static getIndex(el){
+        let index = el.getAttribute(DoList.ATTRIBUTE_NAME);
+        return index;
+    }
+
+    static changeComplete(item){
+        if(item.completed){
+        item.completed = false;
+
+        } else{
+        item.completed = true;
+    }
     }
 
     createInitList(){
@@ -47,24 +69,23 @@ class DoList {
     }
 
     onTaskListClick(e){
-        if(e.target.classList.contains(DoList.STATUS_DEAFAULT)){
+    
+        let arrayTarget; 
 
-            let index = e.target.getAttribute(DoList.ATTRIBUTE_NAME);
-            let arrayTarget = this.toDoTasks.find((item) => item.id == index);      
-                
-            this.changeComplete(arrayTarget);
+        if(e.target.classList.contains(DoList.STATUS_DEAFAULT)){ 
+            arrayTarget = this.findTarget(e.target);   
+            DoList.changeComplete(arrayTarget);
             DoList.setStatus(e.target, arrayTarget.completed);
+        } else if(e.target.classList.contains(DoList.CLASS_DELETE_BTN)){
+            arrayTarget = this.findTarget(e.target.parentElement);
+            this.toDoTasks.splice(arrayTarget.index, 1);
+            e.target.parentElement.remove();
         }
     }
 
-
-    changeComplete(item){
-        if(item.completed){
-        item.completed = false;
-
-        } else{
-        item.completed = true;
-    }
+    findTarget(el){
+        let target = this.toDoTasks.find((item) => item.id == DoList.getIndex(el));
+        return target;
     }
 
     onAddbtnClick(){
@@ -83,8 +104,8 @@ class DoList {
     }
 
     createID(){
-        let res = this.toDoTasks[this.toDoTasks.length - 1].id + 1;
-        return res;
+        let id = this.toDoTasks[this.toDoTasks.length - 1].id + 1;
+        return id;
     }
 
 }   

@@ -3,10 +3,35 @@
     padding: 15px;
     margin: 10px 0;
     width: 400px;
+    cursor: pointer;
+    position: relative;
 }
-
-
 
 .dolist_done{
     background-color: green;
+}
+
+.dolist_deleteBtn{
+    display: block;
+    margin-left: 5px;
+}
+
+.dolist_deleteBtn::after, .dolist_deleteBtn::before{
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #222; 
+}
+.dolist_deleteBtn::after, .dolist_deleteBtn::before, .dolist_deleteBtn {
+    top: 50%; 
+    left: 100%; 
+    position: absolute;
+}
+
+.dolist_deleteBtn::after{
+    transform: rotate(-45deg);
+}
+.dolist_deleteBtn::before{
+    transform: rotate(45deg);
 }
