@@ -2,7 +2,9 @@ html, body{
     height: 100%;
     width: 100%;
     overflow: hidden;
+    margin: 0;
 }
+
 .gallery{
     display: flex;
     flex-flow: nowrap;
@@ -17,10 +19,11 @@ html, body{
    border-right: 5px solid black ;
    
 }
-.pics_wrapper{
+.photos_block{
     width: 75%;
     overflow-y: scroll;
     overflow-x: hidden;
+    position: relative;
 }
 .album_item{
     margin: 15px 0;
@@ -32,7 +35,8 @@ html, body{
 .album_active, .album_item:hover{
     border-color: indigo;
 }
-.pics_list{
+.album_photos{
+    position: absolute;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -46,4 +50,8 @@ html, body{
 }
 .gallery_img{
     width: 100%;
+}
+
+.display_none{
+    display: none;
 }
