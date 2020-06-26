@@ -1,10 +1,12 @@
 html, body{
     height: 100%;
     width: 100%;
+
+}
+body{
     overflow: hidden;
     margin: 0;
 }
-
 .gallery{
     display: flex;
     flex-flow: nowrap;
@@ -47,6 +49,14 @@ html, body{
     flex-flow: column;
     align-items: center;
     width: 200px;
+    cursor: pointer;
+    text-align: center;
+}
+/* .photo_item:hover{
+    transform: scale(1.1)
+} */
+.photo_item>figcaption:hover{
+    text-decoration: underline;
 }
 .gallery_img{
     width: 100%;
@@ -54,4 +64,42 @@ html, body{
 
 .display_none{
     display: none;
+}
+.field{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+}
+
+
+.hide_btn{
+    display: block;
+    position: absolute;
+    top: 100px;
+    right: 200px;
+}
+.hide_btn::after, .hide_btn::before{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: red;
+}
+.hide_btn::after{
+    transform: rotate(-45deg);
+}
+.hide_btn::before{
+    transform: rotate(45deg);
+}
+
+.view_class{
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 500px;
+    height: 300px;
+    z-index: 2;
 }

@@ -5,6 +5,7 @@ static ALBUM_CLASS_ACTIVE = 'album_active';
 static ALBUM_PHOTOS_CLASS = 'album_photos';
 static ALBUM_SAVED_CLASS = 'album_saved';
 static HIDE_BLCOK_CLASS = 'display_none';
+static PHOTO_ITEM_CLASS = 'photo_item';
 
 constructor(albumsArr){
     this.albums = albumsArr;
@@ -14,11 +15,14 @@ constructor(albumsArr){
     this.photoTemplate = document.getElementById('photoTemplate');
     this.albumHeaders = this.albumEl.getElementsByClassName(Gallery.ALBUM_CLASS_NAME);
     this.photosList = this.galleryEl.querySelector('.photos_block');
+    this.backgroundField = document.querySelector('.field');
+    this.backgroundField.addEventListener('click', this.onFieldClick.bind(this));
 
     this.createAlbumList();
     this.init();
 
     this.albumWrapperEl.addEventListener('click', this.onAlbumListClick.bind(this));
+    this.photosList.addEventListener('click', this.onPhotosListClick.bind(this));
 }
 
 static setStatusActive(el){
@@ -107,5 +111,19 @@ createPhotoList(link, title){
 
    this.photosList.lastChild.innerHTML += newItem;
 }
+
+onPhotosListClick(e){
+    if (e.target.classList.contains('gallery_img')){
+        this.backgroundField.classList.remove(Gallery.HIDE_BLCOK_CLASS);
+        e.target.classList.add('view_class');
+    }
+}
+onFieldClick(e){
+    if(e.target.classList.contains('.hide_btn')){
+        this.backgroundField.classList.add(Gallery.HIDE_BLCOK_CLASS);
+    }
+}
+
+
 
 }
