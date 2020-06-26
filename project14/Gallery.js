@@ -17,6 +17,7 @@ constructor(albumsArr){
     this.photosList = this.galleryEl.querySelector('.photos_block');
     this.backgroundField = document.querySelector('.field');
     this.backgroundField.addEventListener('click', this.onFieldClick.bind(this));
+    this.clickedPhoto;
 
     this.createAlbumList();
     this.init();
@@ -115,12 +116,15 @@ createPhotoList(link, title){
 onPhotosListClick(e){
     if (e.target.classList.contains('gallery_img')){
         this.backgroundField.classList.remove(Gallery.HIDE_BLCOK_CLASS);
+        this.clickedPhoto = e.target;
         e.target.classList.add('view_class');
     }
 }
+
 onFieldClick(e){
-    if(e.target.classList.contains('.hide_btn')){
+    if(e.target.classList.contains('hide_btn')){
         this.backgroundField.classList.add(Gallery.HIDE_BLCOK_CLASS);
+        this.clickedPhoto.classList.remove('view_class');
     }
 }
 
