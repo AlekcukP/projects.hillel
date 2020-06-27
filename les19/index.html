@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <script async src="script.js"></script>
+    <script async src="app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Users</h1>
+    <table id="userList">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+            <tbody id="usersList">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th><input type="text" id="userName"></th>
+                    <th><input type="text" id="userPhone"></th>
+                    <th><button id="addUserBtn">Save</button></th>
+                </tr>
+            </tfoot>
+        </thead>
+    </table>
+
+
+    <script type="text/template" id="userTemplate">
+    
+        <tr class='item' data-id="{{id}}">
+            <th>{{name}}</th>
+            <th>{{phone}}</th>
+            <th><button class="delete-btn">Delete</button></th>
+        </tr>
+
+    </script>
+</body>
+</html>

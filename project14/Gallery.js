@@ -6,6 +6,7 @@ static ALBUM_PHOTOS_CLASS = 'album_photos';
 static ALBUM_SAVED_CLASS = 'album_saved';
 static HIDE_BLCOK_CLASS = 'display_none';
 static PHOTO_ITEM_CLASS = 'photo_item';
+static PHOTO_VIEW_CLASS = 'view_class';
 
 constructor(albumsArr){
     this.albums = albumsArr;
@@ -117,14 +118,14 @@ onPhotosListClick(e){
     if (e.target.classList.contains('gallery_img')){
         this.backgroundField.classList.remove(Gallery.HIDE_BLCOK_CLASS);
         this.clickedPhoto = e.target;
-        e.target.classList.add('view_class');
+        e.target.classList.add(Gallery.PHOTO_VIEW_CLASS);
     }
 }
 
 onFieldClick(e){
     if(e.target.classList.contains('hide_btn')){
         this.backgroundField.classList.add(Gallery.HIDE_BLCOK_CLASS);
-        this.clickedPhoto.classList.remove('view_class');
+        this.clickedPhoto.classList.remove(Gallery.PHOTO_VIEW_CLASS);
     }
 }
 
