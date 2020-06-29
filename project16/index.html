@@ -8,6 +8,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header class="header">
+        <div class="headerForms">
+            <input type="text" class="inputForm" id="inputForm">
+            <button class="addBtn" id="addBtn">Add</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="stickBorder">
+
+        </section>
+    </main>
+
+    <script type="text/template" id="stickTemplate">
+            
+            <div class="stick" data-stick-id = "{{id}}" style="background: {{color}} ">
+                <div class="stickHeader">
+                    <div class="decorButton"><img class="buttonImg" src="pics/button.png" alt="button"></div>
+                    <div class="removeButton"></div>
+                </div>
+
+                <div class="stickBody">
+                    <span contenteditable="true" class="stickText">{{text}}</span>
+                </div>
+
+                <div class="stickFooter">
+                    <span class="addtime">{{time}}</span>
+                </div>
+            </div>
+
+    </script>
 </body>
 </html>
