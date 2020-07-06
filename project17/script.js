@@ -108,10 +108,6 @@ function sendCorrectValue(id, el){
 
 }
 
-function deleteTaskFromArray(id){
-    doList.splice(id, 1);
-}
-
 function deleteTaskFromServer(id){
     fetch(URL + '/' + id, {
         method: 'DELETE'
