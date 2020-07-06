@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script defer src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/flick/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+<div id="modalWindow" title="Add new user">
+    <form>
+        <fieldset>
+            <label for="userName">Name: </label><input id="userName" />
+            <label for="userSurname">Surname: </label><input id="userSurname" />
+            <label for="userPhone">Phone: </label><input id="userPhone" />
+            <label for="userEmail">Email: </label><input id="userEmail" />
+        </fieldset>
+    </form>
+    
+</div>
+<table class="user_table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+
+    </tbody>
+</table>
+
+<button id="addBtn">Add new contact</button>
+
+
+
+</body>
+</html>
