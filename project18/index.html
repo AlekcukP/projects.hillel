@@ -15,10 +15,10 @@
 <div id="modalWindow" title="Add new user">
     <form>
         <fieldset>
-            <label for="userName">Name: </label><input id="userName" />
-            <label for="userSurname">Surname: </label><input id="userSurname" />
-            <label for="userPhone">Phone: </label><input id="userPhone" />
-            <label for="userEmail">Email: </label><input id="userEmail" />
+            <label for="userName">Name: </label><input id="userName" type="text">
+            <label for="userSurname">Surname: </label><input id="userSurname" type="text">
+            <label for="userPhone">Phone: </label><input id="userPhone" type="text">
+            <input id="userId" value="" type="hidden" class="">
         </fieldset>
     </form>
     
@@ -29,10 +29,10 @@
             <th>Name</th>
             <th>Surname</th>
             <th>Phone</th>
-            <th>Email</th>
+            <th>Action</th>
         </tr>
     </thead>
-    <tbody id="tableBody">
+    <tbody id="tableList">
 
     </tbody>
 </table>
@@ -40,6 +40,19 @@
 <button id="addBtn">Add new contact</button>
 
 
+<script type="text/template" id="contactTemplate">
+    
+    <tr data-contact-id="{{id}}">
+        <td class="user_name">{{name}}</td>
+        <td class="user_surname">{{surname}}</td>
+        <td class="user_phone">{{phone}}</td>
+        <td>
+            <button class = "edit_btn">Edit</button>
+            <button class = "delete_btn">Delete</button>
+        </td>
+    </tr>
+
+</script>
 
 </body>
 </html>
