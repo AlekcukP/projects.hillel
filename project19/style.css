@@ -35,6 +35,7 @@ body{
     box-shadow: 10px 10px 9px 0px rgba(0,0,0,0.5);
     margin: 20px 10px;
     overflow: visible;
+    position: absolute;
 }
 
 .stickHeader{
@@ -86,8 +87,5 @@ main{
 .stickBorder{
     height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-flow: wrap row;
-    align-items: center;
+    position: relative;
 }

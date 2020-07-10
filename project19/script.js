@@ -23,12 +23,13 @@ constructor(){
     this.getStickList();
 }
 
+
 static createRandomColor(){
     let color = '#' + (Math.random().toString(16) + '000000').substring(2,8).toUpperCase();
     return color;
 }
 
-static saveCorrectText(el, id){
+static saveCorrectValue(el, id){
     fetch(StickBoard.URL + '/' + id, {
         method: 'PUT',
         headers: {
@@ -48,6 +49,7 @@ getStickList(){
                           .then((data) => {
                             this.setData(data);
                             data.forEach((item) => this.createSticker(item));
+                            this.interactSticks();
                           });
 }
 
@@ -59,6 +61,8 @@ createSticker(item){
    let newStick = this.stickTemplateEl.replace('{{text}}', item.description)
                                       .replace('{{color}}', StickBoard.createRandomColor())
                                       .replace('{{id}}', item.id)
+                                      .replace('{{pos-x}}', item.x + 'px')
+                                      .replace('{{pos-y}}', item.y + 'px')
                                       .replace('{{time}}', StickBoard.getDate());
    this.stickBorderEl.innerHTML += newStick;
 }
@@ -110,11 +114,27 @@ onFocusText(e){
         let index = this.stickList.findIndex((item) => item.id == id);
 
         this.stickList[index].description = e.target.innerText;
-        StickBoard.saveCorrectText(this.stickList[index], id);
+        StickBoard.saveCorrectValue(this.stickList[index], id);
     }
 }
 
+interactSticks(){
+    let $sticks = $('.stick');
+    $sticks.draggable({
+        stop: (event, ui) => {
+            let id = event.target.closest('.stick').dataset.stickId;
+            let element = this.stickList.find((item) => item.id == id);
+
+            element.x = ui.position.left;
+            element.y = ui.position.top;
+
+            StickBoard.saveCorrectValue(element, id);
+        }
+    });
+}
 
 }
 
-new StickBoard();
+let board = new StickBoard();
+
+
