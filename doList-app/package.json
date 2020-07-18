@@ -10,12 +10,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^4.0.1",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "jquery": "^3.5.1",
-    "jquery-ui-dist": "^1.12.1"
   }
 }
