@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="vendor.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div id="container">
+        <div class="dolist_header">
+            <input type="text" class="dolist_input">
+            <button class="dolist_btn">Add task</button>	
+        </div>
+    <div class="dolist_body"></div>
+    </div>
+    
+    <script type="text/template" id="listTemplate">
+        <div class="list_item dolist_default">
+            <div class="list_text"></div>
+            <div class="dolist_deleteBtn"></div>
+        </div>
+
+    </script>
+
+</body>
+</html>

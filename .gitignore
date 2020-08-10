@@ -1,2 +1,5 @@
 /temp
 /mvc-app/node_modules
+/script.js
+/index.html
+/.gitignore

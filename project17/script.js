@@ -18,8 +18,8 @@ function init (){
 
 function getList(){
     fetch(URL).then((res) => res.json())
-    .then(setData)  
-    .then((data) => data.forEach((item) => renderList(item.title, item.id, item.isDone)));
+    .then(res => console.log(res))  
+    // .then((data) => data.forEach((item) => renderList(item.title, item.id, item.isDone)));
 }
 
 function setData(data){
@@ -86,30 +86,30 @@ function onRemoveBtnClick(){
 }
 
 
-function findTargetInArr (id){
-    let target  = doList.find((item) => item.id == id);
+// function findTargetInArr (id){
+//     let target  = doList.find((item) => item.id == id);
 
-    return target;
-}
+//     return target;
+// }
 
-function changeStatus(el){
-    el.isDone ? el.isDone = false : el.isDone = true;
-}
+// function changeStatus(el){
+//     el.isDone ? el.isDone = false : el.isDone = true;
+// }
 
-function sendCorrectValue(id, el){
+// function sendCorrectValue(id, el){
 
-    fetch(URL + '/' + id, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(el),
-    });
+//     fetch(URL + '/' + id, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(el),
+//     });
 
-}
+// }
 
-function deleteTaskFromServer(id){
-    fetch(URL + '/' + id, {
-        method: 'DELETE'
-});
-}
+// function deleteTaskFromServer(id){
+//     fetch(URL + '/' + id, {
+//         method: 'DELETE'
+// });
+// }
